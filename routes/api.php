@@ -19,3 +19,10 @@ Route::prefix('{model}')->group(function () {
     Route::put('/{id}', [GenericCrudController::class, 'update']);
     Route::delete('/{id}', [GenericCrudController::class, 'destroy']);
 });
+
+Route::get('/check-db', function () {
+    return [
+        'files' => scandir(database_path()),
+        'exists' => file_exists(database_path('database.sqlite'))
+    ];
+});
