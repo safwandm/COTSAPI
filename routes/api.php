@@ -23,7 +23,7 @@ Route::prefix('{model}')->group(function () {
 Route::get('/check-db', function () {
     return [
         'files' => scandir(database_path()),
-        'exists' => file_exists(database_path('database.sqlite'));
+        'exists' => file_exists(database_path('database.sqlite'))
     ];
 
     // return 'test';
